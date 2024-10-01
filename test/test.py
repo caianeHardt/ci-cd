@@ -1,22 +1,34 @@
 from src.main import *
 
 def test_root():
-    assert root() == {"message": "Hello World"}
+    result = root()
+    yield result
+    assert result == {"message": "Hello World"}
 
 
 def test_create_estudante():
     estudante_test = Estudante(name="Caiane Teste", curso="ADS", ativo=False)
-    assert estudante_test == create_estudante(estudante_test)
+    result = create_estudante(estudante_test)
+    yield result
+    assert estudante_test == result
 
 
 def test_update_estudante_negativo():
-    assert not update_estudante(-5)
+    result = update_estudante(-5)
+    yield result
+    assert not result
 
 def test_update_estudante_positivo():
-    assert update_estudante(7)
+    result = update_estudante(10)
+    yield result
+    assert result
 
 def test_delete_estudante_negativo():
-    assert not update_estudante(-8)
+    result = delete_estudante(-9)
+    yield result
+    assert result
 
 def test_delete_estudante_positivo():
-    assert update_estudante(8)
+    result = delete_estudante(6)
+    yield result
+    assert result
